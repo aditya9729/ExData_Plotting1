@@ -1,4 +1,4 @@
-x<-read.table('household_power_consumption.txt',sep=';',header=TRUE)#read the data,remove the default columns put by R
+x<-read.table('household_power_consumption.txt',sep=';',header=TRUE,na.strings ='?')#read the data,remove the default columns put by R
 head(x)#show the first few rows
 str(x)#show the structure of the table
 dim(x)#check dimensions of x

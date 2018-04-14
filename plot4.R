@@ -1,3 +1,12 @@
+x<-read.table('household_power_consumption.txt',sep=';',header=TRUE,na.strings ='?')#read the data,remove the default columns put by R
+head(x)#show the first few rows
+str(x)#show the structure of the table
+dim(x)#check dimensions of x
+x$Date<-as.character(x$Date)#change  Date column into character strings
+electricity<-subset(x,Date=='1/2/2007' | Date=='2/2/2007')#subset for appropriate dates
+head(electricity)
+electricity$Date<-strptime(electricity$Date,format = '%d/%m/%Y')#change format into date and time
+dev.cur()#check current device
 #set paramters to take in 4 plots in a single file set it into rows,margin length=4 bottom,and going clockwise set the spacing
 png('plot4.png')#save the plots in a png file
 par(mfrow=c(2,2),mar=c(4,4,2,2))
